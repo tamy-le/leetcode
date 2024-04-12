@@ -6,20 +6,20 @@
 
 
 # @lc code=start
+import heapq
+
+
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
-        def counter(numbs: List[int]) -> dict:
-            dictionary = {}
-            for numb in numbs:
-                dictionary[numb] = dictionary.get(numb, 0) + 1
-            return dictionary
-
-        nums_counter = counter(nums)
-        sorted_items = sorted(nums_counter.items(), key=lambda item: item[1])
-        unique_count = len(sorted_items)
-        return [key_value[0] for key_value in sorted_items[unique_count - k :]]
+        counter = {}
+        for num in nums:
+            counter[num] = counter.get(num, 0) + 1
+        heap = []
+        for number, count in counter.items():
+            heapq.heappush(heap, (-count, number))
+        return [heapq.heappop(heap)[1] for _ in range(k)]
 
 
 # @lc code=end
-# Time: O(nlogn) Worst case is when nums has no duplicate numbers
+# Time: O(nlogn) still the same but better because sort can reach n^2 but heap is stable
 # Memory: O(n)
