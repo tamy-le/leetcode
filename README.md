@@ -1,1 +1,1 @@
-![GitHub repo file or directory count (in path)](https://img.shields.io/github/directory-file-count/tamy-le/leetcode/:path?extension=py)
+![GitHub repo file or directory count](https://img.shields.io/github/directory-file-count/tamy-le/leetcode?type=file&extension=py&style=plastic&logo=files&logoColor=yellow&label=problems&labelColor=white&color=green&link=https%3A%2F%2Fleetcode.com%2Ftamy-le%2F)
