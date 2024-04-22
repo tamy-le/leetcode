@@ -9,14 +9,11 @@
 class Solution:
     def evalRPN(self, tokens: List[str]) -> int:
         number_stack = []
-        result = 0
         for token in tokens:
-            if token.strip("-").isdigit():
-                number_stack.append(int(token))
-            else:
+            result = token
+            if not token.strip("-").isdigit():
                 operand2 = number_stack.pop()
                 operand1 = number_stack.pop()
-                result = 0
                 match token:
                     case "*":
                         result = operand1 * operand2
@@ -26,8 +23,8 @@ class Solution:
                         result = operand1 + operand2
                     case "-":
                         result = operand1 - operand2
-                number_stack.append(int(result))
-        return number_stack[-1]
+            number_stack.append(int(result))
+        return number_stack.pop()
 
 
 # @lc code=end
