@@ -12,15 +12,13 @@ class Solution:
         largest_area = 0
         len_heights = len(heights)
         for i in range(len_heights):
-            print(stack, largest_area)
             index = i
             while stack and heights[i] < stack[-1][1]:
                 index, height = stack.pop()
                 largest_area = max(largest_area, height * (i - index))
             stack.append([index, heights[i]])
 
-        for i in range(len(stack)):
-            index, height = stack.pop()
+        for index, height in stack:
             largest_area = max(largest_area, (len_heights - index) * height)
         return largest_area
 
