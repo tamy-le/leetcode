@@ -12,10 +12,8 @@ class Solution:
             val1 = l1.val if l1 else 0
             val2 = l2.val if l2 else 0
             current_sum = val1 + val2 + remainder
-            remainder = 0
-            if current_sum > 9:
-                remainder = 1
-                current_sum -= 10
+            remainder = current_sum // 10
+            current_sum = current_sum % 10
             l1 = l1.next if l1 else None
             l2 = l2.next if l2 else None
             cursor_result.val = current_sum
@@ -26,5 +24,5 @@ class Solution:
             cursor_result.next = ListNode(remainder)
         return result_l
 
-#Time: O(n)
+#Time: O(n) 
 #Memory: O(1) Exclude the result linked list
